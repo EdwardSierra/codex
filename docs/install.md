@@ -37,4 +37,21 @@ cargo clippy --tests
 
 # Run the tests.
 cargo test
-``` 
+```
+
+### Use a locally-built binary in the VS Code extension
+
+To run the VS Code extension against your own build of Codex:
+
+1. Build a release binary:
+
+   ```bash
+   cd codex/codex-rs
+   cargo build --release
+   ```
+
+2. Point the extension at the resulting executable (`codex-rs/target/release/codex`):
+   - Either add the directory to your `PATH`, or
+   - Set the **Codex › Server Path** setting in VS Code to the absolute path of the binary.
+
+3. Reload the window so the extension picks up the new server path. Subsequent chats will launch your locally-built runtime.
